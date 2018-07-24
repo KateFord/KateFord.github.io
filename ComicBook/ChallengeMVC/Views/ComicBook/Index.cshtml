@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ChallengeMVC.Models.ComicBook>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Comics</h2>
+
+<table class="table">   
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ComicTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EpisodeNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EpisodeTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComicTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EpisodeNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EpisodeTitle)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ComicBookId })
+        </td>
+     </tr>
+}
+
+</table>

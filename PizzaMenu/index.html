@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Pizza Drill Demo</title>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+		<meta content="width=device-width,initial-scale=1.0" name="viewport">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<!-- Custom Stylesheet -->
+		<link rel="stylesheet" href="./css/style.css">
+		
+	</head>
+	<body>
+
+		<div class="container-fluid">
+			<img src="./img/pizza.jpg" alt="Pizza" class="img-responsive" style="width:100%;">
+			<div class="centered display-2">Tossers Pizzeria</div>
+		</div>
+		<br>
+		<form id="frmMenu">
+	
+		<div class="card-deck">
+			<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+				<div class="card-block">
+					<h4 class="card-header">Size:</h4>
+					<input class="size" type="radio" name="size" value="Personal Pizza" checked> Personal Pizza<br>
+					<input class="size" type="radio" name="size" value="Medium Pizza"> Medium Pizza<br>
+					<input class="size" type="radio" name="size" value="Large Pizza" > Large Pizza<br>
+					<input class="size" type="radio" name="size" value="Extra Large Pizza"> Extra Large Pizza<br>
+				</div>
+			</div>
+			<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+				<div class="card-block">
+					<h4 class="card-header">Meat:</h4>
+					<input class="meat" type="checkbox" name="meat" value="Pepperoni" > Pepperoni<br>
+					<input class="meat" type="checkbox" name="meat" value="Sausage" > Sausage <br>
+					<input class="meat" type="checkbox" name="meat" value="Canadian Bacon"> Canadian Bacon<br> 
+					<input class="meat" type="checkbox" name="meat" value="Ground Beef"> Ground Beef<br>
+					<input class="meat" type="checkbox" name="meat" value="Anchovy"> Anchovy<br>
+					<input class="meat" type="checkbox" name="meat" value="Chicken"> Chicken<br>
+					<input class="meat" type="checkbox" name="meat" value="Tofu"> Tofu<br>
+				</div>
+			</div>
+			<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+				<div class="card-block">
+					<h4 class="card-header">Veggie:</h4>
+					<input class="veggie" type="checkbox" name="veggie" value="Tomatoes" > Tomatoes<br>
+					<input class="veggie" type="checkbox" name="veggie" value="Onions" > Onions <br>
+					<input class="veggie" type="checkbox" name="veggie" value="Olives" > Olives<br> 
+					<input class="veggie" type="checkbox" name="veggie" value="Green Peppers"> Green Peppers<br>
+					<input class="veggie" type="checkbox" name="veggie" value="Mushrooms"> Mushrooms<br>
+					<input class="veggie" type="checkbox" name="veggie" value="Pineapple"> Pineapple<br>
+					<input class="veggie" type="checkbox" name="veggie" value="Spinach" > Spinach<br>
+					<input class="veggie" type="checkbox" name="veggie" value="Jalapeno"> Jalapeno<br>
+				</div>
+			</div>
+			<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+				<div class="card-block">
+					<h4 class="card-header">Cheese:</h4>
+					<input class="cheese" type="radio" name="cheese" value="Regular cheese" checked> Regular cheese<br>
+					<input class="cheese" type="radio" name="cheese" value="Dairy Free cheese"> Dairy Free cheese<br>
+					<input class="cheese" type="radio" name="cheese" value="Extra cheese"> Extra cheese<br>
+					<input class="cheese" type="radio" name="cheese" value="No cheese"> No cheese<br>
+				</div>
+			</div>
+			<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+				<div class="card-block">
+					<h4 class="card-header">Sauce:</h4>
+					<input class="sauce" type="radio" name="sauce" value="Marinara sauce" checked> Marinara sauce<br>
+					<input class="sauce" type="radio" name="sauce" value="White sauce"> White sauce<br>
+					<input class="sauce" type="radio" name="sauce" value="Barbeque sauce"> Barbeque sauce<br>
+					<input class="sauce" type="radio" name="sauce" value="No sauce"> No sauce<br>
+				</div>
+			</div>
+			<br>
+			<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+				<div class="card-block">
+					<h4 class="card-header">Crust:</h4>
+					<input class="crust" type="radio" name="crust" value="Plain crust" checked> Plain  Crust<br>
+					<input class="crust" type="radio" name="crust" value="Garlic Butter Crust"> Garlic Butter Crust<br>
+					<input class="crust" type="radio" name="crust" value="Gluten Free Crust"> Gluten Free Crust<br>
+					<input class="crust" type="radio" name="crust" value="Cheese Stuffed Crust"> Cheese Stuffed Crust<br>
+					<input class="crust" type="radio" name="crust" value="Spicy Crust"> Spicy Crust<br>
+					<input class="crust" type="radio" name="crust" value="House Special Crust"> House Special Crust<br>
+				</div>
+			</div>
+		</div>
+		</form>
+		
+		<br>
+		<div class="btnGroup">	
+			<button id="btnOrder" type="button" class="btn btn-default btn-lg active" data-toggle="modal" data-target="#exampleModalLong" onclick="getReceipt()" >Place Order</button>
+			<button id="btnCancel" type="button" class="btn btn-default btn-lg"onclick="clearAll()">Cancel</button>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle" >Receipt</h5>
+					<button id="btnClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+							
+								<table class="table">
+									<thead>
+										<tr>
+									  <th>ORDER NO.</th>
+									  <th id="orderNumber">0</th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row" id="orderSize"></th>
+											<td id="orderSizePrice" ></td>
+										</tr>
+										<tr>
+											<th scope="row" id="orderMeat"></th>
+											<td id="orderMeatPrice"></td>
+									  		</tr>
+										<tr>
+											<th scope="row" id="orderVeggie"></th>
+											<td id="orderVeggiePrice"></td>
+										</tr>
+										<tr>
+											<th scope="row" id="orderCheese"></th>
+											<td id="orderCheesePrice"></td>
+										</tr>
+										<tr>
+											<th scope="row" id="orderSauce"></th>
+											<td id="orderSaucePrice"></td>
+									  	</tr>
+										<tr>
+											<th scope="row" id="orderCrust"></th>
+											<td id="orderCrustPrice"></td>
+										</tr>
+										<tr>
+											<th scope="row">TOTAL PRICE</th>
+											<td id="orderTotalPrice"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+				
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<!-- /Modal -->
+		
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		
+		<script src="./js/pizza.js"></script>-->
+				
+	</body>
+</html>
